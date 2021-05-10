@@ -4,7 +4,9 @@
 - Git에서 'user.name' 및 'user.email'을 구성하라고 떠요!(해결책)
 - git config --local user.name 이름
 - git config --local user.email 이메일
+브랜치(branch)가 없다며 구성하라고 떠요!(해결책 아래 1줄)
 - git branch -M master
+리모트(remote)가 없다며 구성하라고 떠요!(해결책 아래1줄)
 - git git remote add origin https://github.com/사용자저장소/사용자저장소.git
 - 작업결과는 .git 폴더안의 config 파일에 저장됩니다.
 - 이후 VS code 프로그램에서 아래 처럼 작업 하시면 됩니다.
