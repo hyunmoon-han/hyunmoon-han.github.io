@@ -22,7 +22,7 @@ p-c의 네트워크 내부주소(공통):127.0.0.1==localhost
 - git git remote add origin https://github.com/사용자저장소/사용자저장소.git
 - 작업결과는 .git 폴더안의 config 파일에 저장됩니다.
 - 이후 VS code 프로그램에서 아래 처럼 작업 하시면 됩니다.
-- 업로드절차: 1. 커밋(commit) 2. 푸시(push)
+- 업로드절차: 1. 커밋(commi) 2. 푸시(push)
 - 다운로드절차: 1. 풀(pull) : 교실에서 작업한 결과를 집에서 이어서 작업할 상황
 - 주의) 다른 신규 PC에서 작업시 아래 명령어로 깃내용을 새로 가져옵니다.(아래)
 - git clone https://github.com/학생저장소/학생저장소.github.io.git

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>html5 실습</title>
     <style>
+        /*border:px(테두리 크기) solid(채워넣은,단단한선?) */
         table,tr,td,th{
             border: 1px solid black;
             font-size: 13px;
@@ -16,6 +17,36 @@
         table{
             border-collapse: collapse ;
         }
+    </style>
+    <style>
+        /* css: cascade style sheet 계층형 스타일 표 */
+        header, nav, section, aside, footer {
+            /* dotted(점선) */
+                border:1px dotted black; }
+                /* text-align(글자 조절) */
+        header > h1, footer>h1{text-align: center;}
+        /* width,heigit는 속성의 크기 
+        width=가로폭
+        heigit=세로폭*/
+        nav { display: block; height: 60px; }
+        /* margin(여백) */
+        nav > ul > li{float:left ;margin-right: 20px ;}
+        section{width: 79%;display: inline-block;
+        }
+        section > article{margin: 10px 30px;border: 1px solid skyblue; 
+        }
+        /* padding :안쪽여백       상하/ 좌우
+             margin 바깥쪽여백*/
+        aside{width: 20%;display: inline-block;
+            height: 100%;
+            right: 0px;
+                position:absolute;
+            text-align: center;}
+        
+        div.contents {
+                 /* 내부의 컨텐츠 기준되는 외부 요소에 관계형 포지션 추가   */
+                position: relative;
+                overflow: hidden;
     </style>
 </head>
 <body>
@@ -91,6 +122,8 @@
             <li>헬로 html</li>
             <li>헬로 html</li>
         </ol>
+        /* ol이 순서있는거 ex)숫자 */
+        /* ul이 순서없는거 ex)숫자x*/
         <ul>
             <li>헬로 html</li>
             <li>헬로 html</li>
@@ -98,7 +131,7 @@
         </ul>
         <!-- 영역지정 div:가상링크는 #으로만듬
          -->
-         <div style="background-color:rgb(111, 138, 135) ;">
+         <div style=background-color:rgb(111, 138, 135) ;">
              <a href="#"></a>
              <a href="">네이버 </a>
              <a href="">다음</a>
@@ -132,8 +165,8 @@
              <input type="reset" value="입력최소">
          </form>
 <!-- 테이블 태그 제어,셀병합
-table ,tr(),td()-->
-       
+table(표) ,tr(),td(),border(테두리)-->
+     
            <table>
                <!-- th는 굵은체+가운데 정렬 -->
                <tr>
@@ -169,29 +202,7 @@ table ,tr(),td()-->
     header, nav, section, article, aside, footer
     -->
 
-<style>
-    /* css: cascade style sheet 계층형 스타일 표 */
-    header, nav, section, aside, footer {
-            border:1px dotted black; }
-    header > h1, footer>h1{text-align: center;}
-    nav { display: block; height: 60px; }
-    nav > ul > li{float:left ;margin-right: 20px ;}
-    section{width: 79%;display: inline-block;
-    }
-    section > article{margin: 10px 30px; 
-    border: 1px solid skyblue;}
-    /* padding 상하/ 좌우:내부영역 
-         마진은 외부*/
-    aside{width: 20%;display: inline-block;
-        height: 100%;
-        right: 0px;
-            position:absolute;}
-    
-    div.contents {
-             /* 내부의 컨텐츠 기준되는 외부 요소에 관계형 포지션 추가   */
-            position: relative;
-            overflow: hidden;
-</style>
+
         <header>
             <h1>herder</h1>
         </header>
@@ -214,6 +225,7 @@ table ,tr(),td()-->
         </section>
         <aside>
             <h1>aside</h1>
+            <h1>fdsafdsa</h1>
         </aside>
     </div>
         <footer>
