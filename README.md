@@ -5,6 +5,12 @@ RestAPI서버 중 코로나 19 확진자 데이터를 받아서 html에서 파�
 -   reatAPI 서버주소(빅테이터):https://coroname.me/getdata
 
 #### 20210512(목)작업내역
+-픽사베이 이미지 3개: 로고 1, 슬라이드 이미지 1,노이미지1 받고 각 경로 적어 놓기
+로고:https://pixabay.com/ko/vectors/%EC%9A%94%EA%B0%80-%EB%AA%85%EC%83%81-%EC%9A%94%EA%B0%80-%ED%8F%AC%EC%A6%88-%EC%8B%A4%EB%A3%A8%EC%97%A3-3409526/
+슬라이드 이미지:https://pixabay.com/ko/photos/
+%EC%84%AC-%EC%8B%AC%EC%9E%A5-%EB%8C%80%EC%96%91-%EB%9D%BC%EA%B5%B0-%EB%B0%94%EB%8B%B7%EA%B0%80-3542290/
+노이미지:https://pixabay.com/ko/vectors/
+%EC%98%88-%EC%97%86%EC%9D%8C-%ED%83%80%EC%9D%B4-%ED%8F%AC-%EA%B7%B8%EB%9E%98%ED%94%BC-2069850/
 - 작업폴더를 나누는 이유:시청(관공서),대학,기업의 웹프로그램(사이트) 
 제작할때,1년간 무상 유지보수 이후 2천만,리뉴얼 4천 비용이 책정
 home폴더 기존 작업물,리뉴얼 home에 덮어쓰는 방식이 아니고,
