@@ -17,6 +17,26 @@
               </style>
               <!-- 제이쿼리 코어 임포트 불러오기 -->
               <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+              <script src="./json.js"></script>
+    <script>
+        // 외부 js파일의 json 데이터를 body 태그안의 #board 내부에 파싱합니다.
+        console.log(jsonData);
+        // jsonData 파싱해서 #board 영역에 동적으로 출력
+        $(document).ready(function(){
+            for(var i=0;i<jsonData.length;i++) {
+                // jsonData 1개씩 뽑아서 화면에 table>tr>td에 출력하게 합니다.
+                // append는 가상선택자의 after와 같음. 기준영역의 다음을 말합니다.
+                $('#board tbody').append('<tr>');
+                $('#board tbody').append('<td style="text-align:center;">'+(i+1)+'</td>');
+                $('#board tbody').append('<td>'+jsonData[i]['_id']+'</td>');
+                $('#board tbody').append('<td>'+jsonData[i]['age']+'</td>');
+                $('#board tbody').append('<td>'+jsonData[i]['eyeColor']+'</td>');
+                $('#board tbody').append('<td>'+jsonData[i]['name']+'</td>');
+                $('#board tbody').append('</tr>');
+            }
+        });
+    </script>
+              
               <script>
                   // jQuery로 개발자가 프로그램을 간편하게 만들기
         // jQuery CDN : Contents Delivery Network 인터넷으로 외부 프로그램을 갖다가 사용.
@@ -36,6 +56,7 @@ $(document).ready(function(){
 <body>
     <table id ="board">
         <tr>
+            <th>No</th>
             <th>id</th>
             <th>age</th>
             <th>eyecolor</th>
@@ -157,9 +178,9 @@ var human = {
     name:{
         firstname:'한',
         lastname:'현문'
-    },//object(배열),
-    age:10,//namber
-    married:true//boolean
+    },              //object(배열),
+    age:10,         //namber
+    married:true    //boolean
 }//복잡해 보이지만 ,ket:value(고유키:값)
 document.write(typeof(human));
 document.write('<br>');
@@ -240,7 +261,6 @@ document.write(txt.toLocaleLowerCase());//소문자로 변경
 //데이터를 파싱(parsing) 한다고 한다
 //숫자파싱
 document.write('<br>');
-
 document.write(num.toFixed(6));//숫자를 파싱  소수점 이하를 6자리fh
 document.write('<br>');
 document.write(num.toString()+num.toString());//숫자를문자로파싱
@@ -319,7 +339,6 @@ document.write('<br>');
 document.write(x%y);//나머지구하기
 document.write('<hr>');//수평선태그
 //document객체안에 (변수,함수 ,배열,객체)=멤버변수 을 가져다가 사용할때.(직접접근)사용
-
 
     //변수=variable요소(number 수,string  문자 ,object  객체) 사용에 대해서
     // 테이터를 사용하는 방법: 변수가 사용 
