@@ -15,16 +15,79 @@
 <link rel="stylesheet" href="/home/css/reset.css">
 <!-- 여기서 부터 사용자 정의형 스타일 + 스크립트 추가(아래) -->
 <link rel="stylesheet" href="/home/css/mobile.css">
+<!-- 태블릿용 css임포트 -->
+<link rel="stylesheet" href="/home/css/tablet.css">
+<!-- pc용 css임포트 -->
+<link rel="stylesheet" href="/home/css/pc.css">
 <script src="/home/js/main.js"></script>
 <!-- 메인 슬라이드 코어 임포트 -->
 <script src="/home/js/slidemain.js"></script>
 <style>
-/* 테블릿용 메인페이지 스타일 지정(아래) */
+
+/* 테블릿용 메인페이지 스타일 지정(아래)  801px~무한대까지 재정의*/
+@media all and (min-width:801px){  /*가로크기 801px이상부터는*/
+	
+}
+/* pc용 메인 페이지 스타일 지정  1066px~ 무한대까지의 재정의*/
+@media all and (min-width :1066px){
+	
+}
 
 </style>
 <script>
+	// pc용대메뉴 마우스 롤오버 이베트 만들기 (아래)
+	//첫번째대메뉴 서브메뉴= .gnb_gepth2_1 마우스 롤아웃상태처리
+	var isOver11 = false;//불린 boolean데이터형으로 플래그(깃발)
+	var isOver12 = false;//기본은 마우스 off상태
+	function goHide1(){
+		if(!isOver11 &&!isOver12){//2개변수 모두true일때 구현
+		//jQuery는 뒤에서 앞으로 해석(영어와 같은)
+		$('.gnd_depth2_1').stop().fadeOut('fast')
+		/// 대메뉴 중 1번의 2차 .gnb_deepth2_1 영역
+		}
+	}
+	//두번째대메뉴 서브메뉴=.gnb_gepth2_2 마우스 롤아웃 상태처리
+	var isOver21 = false;
+	var isOver22 = false;
+	function goHide2(){
+		if(!isOver21 && !isOver22){
+			$('.gnd_depth2_2').stop().fadeOut('fast')
+		}
+	}
+	//pc용 대메뉴 마우스 롤오버 이벤트 만들기 (아래)
+$(document).ready(function(){
+	//[대메뉴1번]의 마우스 오버이벤트 =>.gnb_depth2_1서브메뉴 보이기
+	$('.openAll1').mouseover(function(){
+		//alert($(window).width());
+		//parseInt문자를 숫자로 변환하는 형변환 함수  1066(윈도우)==1049(css)
+		if(parseInt($('header').css('width'))>=1049){//header태그의 가로크기가 1055이상라면 작동 
+			$('.gnb_depth2_1').fadeIn('fast');
+		}
+		isOver11=true;
+	});
+	//[대메뉴1번]의  마우스 아웃이벤트=.>.gnb_depth2_1서브메뉴 숨기기
+	$('.openAll1').mouseout(function(){
+		isOver11= false;
+		setTimeout('goHide1()',200);//0.2 마다 함수를 실행해서 서브메뉴를 숨기기처리
+	});
+	//[대메뉴2번]의 마우스 오버이벤트=>.gnb_depth2_2서브메뉴 보이기
+	$('.openAll2').mouseover(function(){
+		if(parseInt($('header').css('width'))>=1049){
+			$('.gnd_depth2_2').fadeIn('fast');
+		}
+		isOver21=true;
+	});
+	//[대메뉴2번]의 마우스 아웃이벤트=> .gnb_depth2_2서브메뉴 숨기기
+	$('.openAll2').mouseout(function(){
+		isOver21=false;
+		setTimeout9('goHide2()',200);//서브메뉴숨김
+	});
+	
+});
 //메인 페이지전용 슬라이드 호출부분
 $(document).ready(function() {
+	
+
 	//위에서 선언한 함수|변수 사용(아래)
 	//여기서 함수호출(실행)
 	slideAuto = setTimeout('play_w("right")', 3000);//3초마다 play_w함수 실행
