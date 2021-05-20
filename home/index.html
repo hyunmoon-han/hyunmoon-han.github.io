@@ -23,6 +23,9 @@
 <!-- 메인 슬라이드 코어 임포트 -->
 <script src="/home/js/slidemain.js"></script>
 <style>
+/* 모바일용 로그인 스타일 */
+
+/* //모바일용 로그인 스타일 */
 
 /* 테블릿용 메인페이지 스타일 지정(아래)  801px~무한대까지 재정의*/
 @media all and (min-width:801px){  /*가로크기 801px이상부터는*/
@@ -35,69 +38,76 @@
 
 </style>
 <script>
-	// pc용대메뉴 마우스 롤오버 이베트 만들기 (아래)
-	//첫번째대메뉴 서브메뉴= .gnb_gepth2_1 마우스 롤아웃상태처리
-	var isOver11 = false;//불린 boolean데이터형으로 플래그(깃발)
-	var isOver12 = false;//기본은 마우스 off상태
-	function goHide1(){
-		if(!isOver11 &&!isOver12){//2개변수 모두true일때 구현
-		//jQuery는 뒤에서 앞으로 해석(영어와 같은)
-		$('.gnd_depth2_1').stop().fadeOut('fast')
-		/// 대메뉴 중 1번의 2차 .gnb_deepth2_1 영역
-		}
+//pc용  서브메뉴 사라지는 액션
+var isOver1= false;//대메뉴 1이 false 일때 서브메뉴가 사라지는 조건
+var isOverSub1=false;//서브메뉴 1번이 false 일때 서브메뉴가 사라지는 조건
+// 1번 서브메뉴를 숨기는 함수()
+function goHide1(){
+	if(!isOver1 && !isOverSub1){//2개변수 값이 다 false일때 구현조건이 됩니다.
+		$('.gnb_depth2_1').stop().fadeOut('fast');//서브메뉴의의2번의1이사라지게된다
 	}
-	//두번째대메뉴 서브메뉴=.gnb_gepth2_2 마우스 롤아웃 상태처리
-	var isOver21 = false;
-	var isOver22 = false;
-	function goHide2(){
-		if(!isOver21 && !isOver22){
-			$('.gnd_depth2_2').stop().fadeOut('fast')
-		}
+}
+var isOver2=false;//대메뉴 2번이false일때 서브메뉴가 사라지는 조건
+var isOverSub2=false;//서브메뉴2번이 false일때 서브메뉴거 사라지는 조건
+//2번 서브메뉴 숨기기함수(아래)
+function goHide2(){
+	if(!isOver2 && !isOverSub2){
+		$('.gnb_depth2_2').stop().fadeOut('fast');//페이드아웃실행되고 스탑실행  
 	}
-	//pc용 대메뉴 마우스 롤오버 이벤트 만들기 (아래)
+}
+//PC용 서브메뉴가 나타나는액션 만들기(아래)
 $(document).ready(function(){
-	//[대메뉴1번]의 마우스 오버이벤트 =>.gnb_depth2_1서브메뉴 보이기
+	//대메뉴 1액션
 	$('.openAll1').mouseover(function(){
-		//alert($(window).width());
-		//parseInt문자를 숫자로 변환하는 형변환 함수  1066(윈도우)==1049(css)
-		if(parseInt($('header').css('width'))>=1049){//header태그의 가로크기가 1055이상라면 작동 
-			$('.gnb_depth2_1').fadeIn('fast');
+		if(parseInt($( 'header').css('width')) >=1049){
+			$('.gnb_depth2_1').stop().fadeIn('slow');//서브메뉴1번이 나타나게 처리
 		}
-		isOver11=true;
+		isOver1=true;//false일때 숨기는 조건<->true 일때 나타나는 조건
 	});
-	//[대메뉴1번]의  마우스 아웃이벤트=.>.gnb_depth2_1서브메뉴 숨기기
 	$('.openAll1').mouseout(function(){
-		isOver11= false;
-		setTimeout('goHide1()',200);//0.2 마다 함수를 실행해서 서브메뉴를 숨기기처리
+		isOver1=false;
+		setTimeout('goHide1()',200);//기본은 goHide1() 이것만하면 되는데 ,mouseout이벤트 놓치면 않되기 때문에 setTimeout사용
 	});
-	//[대메뉴2번]의 마우스 오버이벤트=>.gnb_depth2_2서브메뉴 보이기
+	//서브메뉴1 액션
+	$('.gnb_depth2_1').mouseover(function(){
+		isOverSub1=true;//서브메뉴1 계속 나타납니다.
+	});
+	$('.gnb_depth2_1').mouseout(function(){
+		isOverSub1=false;//서브메뉴1번이 사라집니다.
+		setTimeout('goHide1()',200);
+	});
+	//대메뉴2 액션
 	$('.openAll2').mouseover(function(){
-		if(parseInt($('header').css('width'))>=1049){
-			$('.gnd_depth2_2').fadeIn('fast');
+		if(parseInt($( 'header').css('width')) >=1049){
+			$('.gnb_depth2_2').stop().fadeIn('fast');//서브메뉴1번이 나타나게 처리
 		}
-		isOver21=true;
+		isOver2=true;//false일때 숨기는 조건<->true 일때 나타나는 조건
 	});
-	//[대메뉴2번]의 마우스 아웃이벤트=> .gnb_depth2_2서브메뉴 숨기기
 	$('.openAll2').mouseout(function(){
-		isOver21=false;
-		setTimeout9('goHide2()',200);//서브메뉴숨김
+		isOver2=false;
+		setTimeout('goHide2()',200);
 	});
-	
+	//서브메뉴 2액션
+	$('.gnb_depth2_2').mouseover(function(){
+		isOverSub2=true;//서브메뉴2 계속 나타납니다.
+	});
+	$('.gnb_depth2_2').mouseout(function(){
+		isOverSub2=false;//서브메뉴2번이 사라집니다.
+		setTimeout('goHide2()',200);
+	});
 });
-//메인 페이지전용 슬라이드 호출부분
+// 메인페이지 전용 슬라이드 호출 부분
 $(document).ready(function() {
-	
-
-	//위에서 선언한 함수|변수 사용(아래)
+	// 위에서 선언한 함수|변수 사용(아래)
 	//여기서 함수호출(실행)
 	slideAuto = setTimeout('play_w("right")', 3000);//3초마다 play_w함수 실행
 	var slidePlayHide = setTimeout(function(){
 		$('.rollplay').css('display','none');
 	},3000);//3초 후에 rollplay클래스 플레이버튼 영역을 숨김
 	// 3개의 슬라이드 버튼 클랙 액션처리
-	$('.rollstop ').click(function(){
-		// this는 클릭한 본인 태그를 말합니다. 롤스탑
-		$(this).hide();//현재 stop버튼 숨김.
+	$('.rollstop a').click(function(){
+		// this는 클릭한 본인 태그를 말합니다.
+		$(this).parent().hide();//현재 stop버튼 숨김.
 		$('.rollplay').css('display','inline-block');
 		if(slideAuto) {
 			clearTimeout(slideAuto);//slideAuto변수가 없다면, play_w함수를 실행 중지.
@@ -112,13 +122,12 @@ $(document).ready(function() {
 	$('.rollingbtn li.seq a').each(function(index){
 		$(this).click(function(){
 			$('.rollplay').hide();
-		$('.rollstop').css('display','inline-block');
-			if(slideAuto){
+			$('.rollstop').css('display','inline-block');
+			if(slideAuto) {
 				clearTimeout(slideAuto);//슬라이드 중지
 			}
-			play_w(index);//슬라이드 재생: 단 시작위치는 클릭한index부터 무한반복
+			play_w(index);//슬라이드 재생 : 단 시작위치는 클릭한 index부터 무한반복
 		});
-		
 	});
 });
 
@@ -273,7 +282,7 @@ $(document).ready(function() {
 		</div>
 		<!-- //카카오톡상담및최근공지사항영역 -->
 	</div>
-	<!-- //메이콘텐츠영역 -->
+	<!-- //메인콘텐츠영역 -->
 	
 	<!-- 푸터메뉴및사업자정보영역 -->
 	<footer>

@@ -7,9 +7,7 @@
     <title>test</title>
   
     <style>
-        body{
-            background-color: #bbbbbb; border: double ;margin: 10px;
-        }
+        
         header{background-color: #ffff99; margin: 5px ; padding: 5px;text-align: center; }
         nav{ width: 20%; background-color: #99ff99; float: left;display: block;}
         nav a{ display: block; padding: 2px; border: solid black; border-width: thin; }/*thin 얇은 ,가는  -가로 얇은*/
@@ -21,9 +19,10 @@ footer{
     display: block ;background-color: darkcyan; text-align: center; margin: 5px; clear: both;/*정령비스무리?*/
 }
     </style>
+
 </head>
 
-<body>
+<body id="a">
     <header>
 [header] s_mbookstore
 <nav>[nav]메뉴
@@ -77,13 +76,13 @@ footer{
 
 
 <a href="ac">이거눌러</a>
-<a href="https://www.naver.com/"><img src="/home/img/slide.jpg" alt="이미지가 표시되지 않습니다" width= "90" height=70px></a>>
+<a href="https://www.naver.com/"><img src="/home/img/slide1.jpg" alt="이미지가 표시되지 않습니다" width= "90" height=70px></a>>
 
 <h1>여행</h1>
 <table>
     <tr>
          <td>
-             <a href="/home/img/slide.jpg" target="hm"> <img src="/home/img/slide.jpg" alt="" width="100" height="100"></a>
+             <a href="/home/img/slide1.jpg" target="hm"> <img src="/home/img/slide1.jpg" alt="" width="100" height="100"></a>
          </td>
          <td><a href="/home/img/no_image.png  " target="hm"><img src="/home/img/no_image.png" alt="" width="100" height="100"></a></td>
         <td></td>
@@ -91,7 +90,29 @@ footer{
     </tr>
 </table>
 <iframe src="" name="hm" width="400" height="400"></iframe>
-tamle>tr>tr *3   
+  
+<!-- <p id="demo" onclick="document.getElementById('demo').style.color = 'red';">Click me to change my text color.</p> -->
+<script></script>
+<input  type="button" value="night" onclick="
+
+if(this.value=='night'){
+     a.style.backgroundColor='yellow';
+     this.value='day'
+    }else{
+        a.style.backgroundColor='green';
+        this.value='night';
+    }
+">
+<input type="button" value="n" onclick="
+if(this.value=='n'){
+     document.getElementById('a').style.backgroundColor='yellow'; 
+        this.value='m'
+    }else{
+        document.getElementById('a').style.backgroundColor='green';
+        this.value='n';
+    }
+">
+
 </body>
 
 </html>
