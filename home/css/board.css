@@ -318,11 +318,14 @@ color: red;
     float: none;
     width: auto;
     border: 1px solid #ccc;
-    margin-left: 1px;
+    margin-left: 1px; 
 }
+
+
 .app_content input {
     border: none;
-    width: inherit;/* 부모 영역(부러워저기본값)의 input태그긔 너비값을 상속받음==초기화한다.*/
+    /* width: inherit; */
+    /* 부모 영역(부러워저기본값)의 input태그긔 너비값을 상속받음==초기화한다.*/
     box-sizing: border-box;
     display: inline-block;
     height: 45px;
